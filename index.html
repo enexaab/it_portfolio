@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enyew Abebe Portfolio</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .smooth-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-tag {
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .section-spacing {
+            padding: 5rem 1rem;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .loading {
+            border: 3px solid #f3f4f6;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .metric-card {
+            background: white;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-card {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #e5e7eb;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea33;
+        }
+
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="bg-gray-50"><!-- Navigation -->
+  <nav class="nav-bar">
+   <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+     <h1 class="text-xl font-bold text-gray-900" id="nav-name">Enyew Abebe</h1>
+     <div class="hidden md:flex gap-8"><a href="#about" class="text-gray-600 hover:text-purple-600 transition font-medium">About</a> <a href="#experience" class="text-gray-600 hover:text-purple-600 transition font-medium">Experience</a> <a href="#skills" class="text-gray-600 hover:text-purple-600 transition font-medium">Skills</a> <a href="#contact" class="text-gray-600 hover:text-purple-600 transition font-medium">Contact</a>
+     </div>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <section class="section-spacing bg-white">
+   <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-3xl">
+     <div class="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-6"><i class="fas fa-circle text-green-500 text-xs mr-2"></i>Available for opportunities
+     </div>
+     <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight" id="hero-name">Enyew Abebe</h2>
+     <p class="text-2xl md:text-3xl text-purple-600 font-semibold mb-4" id="hero-title">IT Officer &amp; Full-Stack Developer</p>
+     <p class="text-xl text-gray-600 mb-8 leading-relaxed" id="hero-tagline">Specialized in Flutter &amp; Laravel • 3+ Years Experience in IT Support &amp; Development</p>
+     <div class="flex flex-wrap gap-4 mb-8"><a href="#contact" class="btn-primary gradient-primary text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2"> <i class="fas fa-envelope"></i> Get in Touch </a> <button onclick="downloadCV()" class="bg-white border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:border-purple-600 hover:text-purple-600 transition inline-flex items-center gap-2"> <i class="fas fa-download"></i> Download CV </button>
+     </div>
+     <div class="flex flex-wrap gap-6 text-gray-600">
+      <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-purple-600"></i> <span id="hero-location">Addis Ababa, Ethiopia</span>
+      </div>
+      <div class="flex items-center gap-2"><i class="fas fa-phone text-purple-600"></i> <span id="hero-phone">+251 989 847 725</span>
+      </div>
+      <div class="flex items-center gap-2"><i class="fas fa-envelope text-purple-600"></i> <span id="hero-email">enyew_abebe@outlook.com</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Metrics -->
+  <section class="py-12 bg-gray-50">
+   <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+     <div class="metric-card smooth-shadow rounded-lg p-6 text-center">
+      <div class="text-4xl font-bold text-purple-600 mb-2">
+       2+
+      </div>
+      <div class="text-gray-600 font-medium">
+       Years Experience
+      </div>
+     </div>
+     <div class="metric-card smooth-shadow rounded-lg p-6 text-center">
+      <div class="text-4xl font-bold text-purple-600 mb-2">
+       25+
+      </div>
+      <div class="text-gray-600 font-medium">
+       Projects Delivered
+      </div>
+     </div>
+     <div class="metric-card smooth-shadow rounded-lg p-6 text-center">
+      <div class="text-4xl font-bold text-purple-600 mb-2">
+       200+
+      </div>
+      <div class="text-gray-600 font-medium">
+       Staff Trained
+      </div>
+     </div>
+     <div class="metric-card smooth-shadow rounded-lg p-6 text-center">
+      <div class="text-4xl font-bold text-purple-600 mb-2">
+       99.8%
+      </div>
+      <div class="text-gray-600 font-medium">
+       System Uptime
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- About -->
+  <section id="about" class="section-spacing bg-white">
+   <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-4xl font-bold text-gray-900 mb-12">About Me</h3>
+    <div class="bg-gray-50 rounded-2xl p-8 md:p-12">
+     <p class="text-lg text-gray-700 leading-relaxed">Passionate IT professional with extensive experience in technical support, full-stack web and mobile application development. Proficient in Flutter and Laravel frameworks, with a proven track record of delivering user-friendly digital solutions. Skilled in troubleshooting complex technical issues, system maintenance, and implementing security protocols. Strong problem-solver committed to continuous learning and effective team collaboration.</p>
+    </div>
+   </div>
+  </section><!-- Experience -->
+  <section id="experience" class="section-spacing bg-gray-50">
+   <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-4xl font-bold text-gray-900 mb-12">Professional Experience</h3>
+    <div class="space-y-12"><!-- Siinqee Bank -->
+     <div class="experience-card">
+      <div class="bg-white rounded-xl p-8 smooth-shadow hover-lift">
+       <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+        <div>
+         <h4 class="text-2xl font-bold text-gray-900 mb-2">IT &amp; Software Support Officer</h4>
+         <p class="text-purple-600 font-semibold text-lg">Siinqee Bank S.C.</p>
+        </div><span class="text-gray-500 font-medium">2023 - 2025</span>
+       </div>
+       <ul class="space-y-3 text-gray-700">
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Reduced system downtime by <strong>60%</strong> through proactive maintenance and rapid issue resolution</span></li>
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Trained <strong>200+ bank staff</strong> on new software systems, improving operational efficiency</span></li>
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Maintained <strong>99.8% system uptime</strong> for critical banking applications</span></li>
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Implemented security protocols resulting in <strong>zero security breaches</strong></span></li>
+       </ul>
+      </div>
+     </div><!-- Qmem Tech -->
+     <div class="experience-card">
+      <div class="bg-white rounded-xl p-8 smooth-shadow hover-lift">
+       <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+        <div>
+         <h4 class="text-2xl font-bold text-gray-900 mb-2">Freelance IT &amp; Software Developer</h4>
+         <p class="text-purple-600 font-semibold text-lg">Qmem Tech</p>
+        </div><span class="text-gray-500 font-medium">2024 - 2025</span>
+       </div>
+       <ul class="space-y-3 text-gray-700">
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Achieved <strong>95% issue resolution</strong> within 24 hours for client projects</span></li>
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Developed <strong>2+ Flutter mobile applications</strong> with excellent user ratings</span></li>
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Built <strong>10+ Laravel web applications</strong> with 99.9% uptime</span></li>
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Maintained <strong>100% client retention rate</strong> through quality delivery</span></li>
+       </ul>
+      </div>
+     </div><!-- INSA -->
+     <div class="experience-card">
+      <div class="bg-white rounded-xl p-8 smooth-shadow hover-lift">
+       <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+        <div>
+         <h4 class="text-2xl font-bold text-gray-900 mb-2">Software Development Intern</h4>
+         <p class="text-purple-600 font-semibold text-lg">Information Network Security Agency (INSA)</p>
+        </div><span class="text-gray-500 font-medium">2022 - 2023</span>
+       </div>
+       <ul class="space-y-3 text-gray-700">
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Developed <strong>1+ cross-platform applications</strong> with 4.5+ star ratings</span></li>
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Reduced application loading time by <strong>30%</strong> through optimization</span></li>
+        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>Improved user engagement by <strong>25%</strong> with enhanced UX design</span></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Skills -->
+  <section id="skills" class="section-spacing bg-white">
+   <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-4xl font-bold text-gray-900 mb-12">Technical Skills</h3>
+    <div class="grid md:grid-cols-2 gap-8">
+     <div class="bg-gray-50 rounded-xl p-8">
+      <h4 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3"><i class="fas fa-code text-purple-600"></i> Development</h4>
+      <div class="flex flex-wrap gap-3"><span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Flutter &amp; Dart</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Laravel &amp; PHP</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">RESTful API</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Firebase</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">State Management</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">UI/UX Design</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">MySQL</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Git Version Control</span>
+      </div>
+     </div>
+     <div class="bg-gray-50 rounded-xl p-8">
+      <h4 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3"><i class="fas fa-server text-purple-600"></i> IT Support</h4>
+      <div class="flex flex-wrap gap-3"><span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Hardware Configuration</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Network Administration</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">System Troubleshooting</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">User Training</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">System Maintenance</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Security Protocols</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Technical Documentation</span> <span class="skill-tag bg-white px-4 py-2 rounded-lg font-medium text-gray-700 smooth-shadow">Help Desk Support</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Education -->
+  <section class="section-spacing bg-gray-50">
+   <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-4xl font-bold text-gray-900 mb-12">Education &amp; Certifications</h3>
+    <div class="space-y-6">
+     <div class="bg-white rounded-xl p-8 smooth-shadow hover-lift">
+      <div class="flex items-start gap-4">
+       <div class="bg-purple-100 text-purple-600 p-4 rounded-lg"><i class="fas fa-graduation-cap text-2xl"></i>
+       </div>
+       <div class="flex-1">
+        <h4 class="text-xl font-bold text-gray-900 mb-1">Bachelor of Science in Information Systems</h4>
+        <p class="text-purple-600 font-semibold">Bahir Dar University</p>
+        <p class="text-gray-600">2019 - 2023</p>
+       </div>
+      </div>
+     </div>
+     <div class="bg-white rounded-xl p-8 smooth-shadow hover-lift">
+      <div class="flex items-start gap-4">
+       <div class="bg-purple-100 text-purple-600 p-4 rounded-lg"><i class="fas fa-certificate text-2xl"></i>
+       </div>
+       <div class="flex-1">
+        <h4 class="text-xl font-bold text-gray-900 mb-1">Professional Certifications</h4>
+        <p class="text-purple-600 font-semibold">Miljonbemanning, Sweden</p>
+        <p class="text-gray-600 mb-2">2024 - 2025</p>
+        <ul class="text-gray-700 space-y-1">
+         <li>• Project Management Tech (PMT)</li>
+         <li>• Problem Solving Certificate (PSC)</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact -->
+  <section id="contact" class="section-spacing bg-white">
+   <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+     <h3 class="text-4xl font-bold text-gray-900 mb-4" id="contact-title">Get In Touch</h3>
+     <p class="text-xl text-gray-600" id="contact-subtitle">Let's discuss how I can help with your IT needs</p>
+    </div>
+    <div class="max-w-2xl mx-auto">
+     <form id="contact-form" class="bg-gray-50 rounded-2xl p-8 md:p-12">
+      <div class="space-y-6">
+       <div><label class="block text-gray-700 font-semibold mb-2">Name</label> <input type="text" id="contact-name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your name">
+       </div>
+       <div><label class="block text-gray-700 font-semibold mb-2">Email</label> <input type="email" id="contact-email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="your.email@example.com">
+       </div>
+       <div><label class="block text-gray-700 font-semibold mb-2">Subject</label> <input type="text" id="contact-subject" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="What's this about?">
+       </div>
+       <div><label class="block text-gray-700 font-semibold mb-2">Message</label> <textarea id="contact-message" required rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Tell me about your project or inquiry..."></textarea>
+       </div><button type="submit" id="submit-btn" class="btn-primary gradient-primary w-full text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2"> <span id="submit-text">Send Message</span> <i class="fas fa-paper-plane"></i> </button>
+      </div>
+     </form>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+   <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center">
+     <p class="text-lg mb-4">© 2025 Enyew Abebe. All rights reserved.</p>
+     <div class="flex justify-center gap-6"><a href="mailto:enyew_abebe@outlook.com" class="text-gray-400 hover:text-white transition text-xl"> <i class="fas fa-envelope"></i> </a> <a href="tel:+251989847725" class="text-gray-400 hover:text-white transition text-xl"> <i class="fas fa-phone"></i> </a> <a href="https://www.linkedin.com/in/enyew-abebe" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition text-xl"> <i class="fab fa-linkedin"></i> </a> <a href="https://github.com/enyewabebe" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition text-xl"> <i class="fab fa-github"></i> </a>
+     </div>
+    </div>
+   </div>
+  </footer><!-- Toast -->
+  <div id="toast" class="toast"><i class="fas fa-check-circle text-xl"></i> <span id="toast-message"></span>
+  </div>
+  <script>
+        const defaultConfig = {
+            full_name: "Enyew Abebe",
+            job_title: "IT Officer & Full-Stack Developer",
+            tagline: "Specialized in Flutter & Laravel • 3+ Years Experience in IT Support & Development",
+            location: "Addis Ababa, Ethiopia",
+            phone: "+251 989 847 725",
+            email: "enyew_abebe@outlook.com",
+            form_title: "Get In Touch",
+            form_subtitle: "Let's discuss how I can help with your IT needs",
+            submit_button_text: "Send Message",
+            background_color: "#f9fafb",
+            primary_color: "#667eea",
+            secondary_color: "#ffffff",
+            text_color: "#111827",
+            accent_color: "#764ba2",
+            font_family: "Inter",
+            font_size: 16
+        };
+
+        const dataHandler = {
+            onDataChanged(data) {}
+        };
+
+        async function onConfigChange(config) {
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            const fontFamily = `${customFont}, ${baseFontStack}`;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            
+            document.body.style.fontFamily = fontFamily;
+            document.body.style.fontSize = `${baseSize}px`;
+
+            const elements = {
+                nav_name: document.getElementById('nav-name'),
+                hero_name: document.getElementById('hero-name'),
+                hero_title: document.getElementById('hero-title'),
+                hero_tagline: document.getElementById('hero-tagline'),
+                hero_location: document.getElementById('hero-location'),
+                hero_phone: document.getElementById('hero-phone'),
+                hero_email: document.getElementById('hero-email'),
+                contact_title: document.getElementById('contact-title'),
+                contact_subtitle: document.getElementById('contact-subtitle'),
+                submit_text: document.getElementById('submit-text')
+            };
+
+            if (elements.nav_name) elements.nav_name.textContent = config.full_name || defaultConfig.full_name;
+            if (elements.hero_name) elements.hero_name.textContent = config.full_name || defaultConfig.full_name;
+            if (elements.hero_title) elements.hero_title.textContent = config.job_title || defaultConfig.job_title;
+            if (elements.hero_tagline) elements.hero_tagline.textContent = config.tagline || defaultConfig.tagline;
+            if (elements.hero_location) elements.hero_location.textContent = config.location || defaultConfig.location;
+            if (elements.hero_phone) elements.hero_phone.textContent = config.phone || defaultConfig.phone;
+            if (elements.hero_email) elements.hero_email.textContent = config.email || defaultConfig.email;
+            if (elements.contact_title) elements.contact_title.textContent = config.form_title || defaultConfig.form_title;
+            if (elements.contact_subtitle) elements.contact_subtitle.textContent = config.form_subtitle || defaultConfig.form_subtitle;
+            if (elements.submit_text) elements.submit_text.textContent = config.submit_button_text || defaultConfig.submit_button_text;
+        }
+
+        async function initializeApp() {
+            const dataInitResult = await window.dataSdk.init(dataHandler);
+            if (!dataInitResult.isOk) {
+                console.error("Failed to initialize Data SDK");
+            }
+
+            if (window.elementSdk) {
+                window.elementSdk.init({
+                    defaultConfig: defaultConfig,
+                    onConfigChange: onConfigChange,
+                    mapToCapabilities: (config) => ({
+                        recolorables: [
+                            {
+                                get: () => config.background_color || defaultConfig.background_color,
+                                set: (value) => {
+                                    if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.secondary_color || defaultConfig.secondary_color,
+                                set: (value) => {
+                                    if (window.elementSdk) window.elementSdk.setConfig({ secondary_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.text_color || defaultConfig.text_color,
+                                set: (value) => {
+                                    if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.primary_color || defaultConfig.primary_color,
+                                set: (value) => {
+                                    if (window.elementSdk) window.elementSdk.setConfig({ primary_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.accent_color || defaultConfig.accent_color,
+                                set: (value) => {
+                                    if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
+                                }
+                            }
+                        ],
+                        borderables: [],
+                        fontEditable: {
+                            get: () => config.font_family || defaultConfig.font_family,
+                            set: (value) => {
+                                if (window.elementSdk) window.elementSdk.setConfig({ font_family: value });
+                            }
+                        },
+                        fontSizeable: {
+                            get: () => config.font_size || defaultConfig.font_size,
+                            set: (value) => {
+                                if (window.elementSdk) window.elementSdk.setConfig({ font_size: value });
+                            }
+                        }
+                    }),
+                    mapToEditPanelValues: (config) => new Map([
+                        ["full_name", config.full_name || defaultConfig.full_name],
+                        ["job_title", config.job_title || defaultConfig.job_title],
+                        ["tagline", config.tagline || defaultConfig.tagline],
+                        ["location", config.location || defaultConfig.location],
+                        ["phone", config.phone || defaultConfig.phone],
+                        ["email", config.email || defaultConfig.email],
+                        ["form_title", config.form_title || defaultConfig.form_title],
+                        ["form_subtitle", config.form_subtitle || defaultConfig.form_subtitle],
+                        ["submit_button_text", config.submit_button_text || defaultConfig.submit_button_text]
+                    ])
+                });
+            }
+
+            await onConfigChange(defaultConfig);
+        }
+
+        function showToast(message, isSuccess = true) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            const icon = toast.querySelector('i');
+            
+            toastMessage.textContent = message;
+            toast.style.display = 'flex';
+            toast.style.backgroundColor = isSuccess ? '#10b981' : '#ef4444';
+            toast.style.color = 'white';
+            icon.className = isSuccess ? 'fas fa-check-circle text-xl' : 'fas fa-exclamation-circle text-xl';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 4000);
+        }
+
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const originalText = submitText.textContent;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<div class="loading"></div><span>Sending...</span>';
+            
+            const formData = {
+                id: Date.now().toString(),
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                subject: document.getElementById('contact-subject').value,
+                message: document.getElementById('contact-message').value,
+                submitted_at: new Date().toISOString()
+            };
+            
+            const result = await window.dataSdk.create(formData);
+            
+            submitBtn.disabled = false;
+            
+            if (result.isOk) {
+                showToast('Message sent successfully! I\'ll get back to you soon.', true);
+                document.getElementById('contact-form').reset();
+                submitBtn.innerHTML = `<span>${originalText}</span><i class="fas fa-paper-plane"></i>`;
+            } else {
+                showToast('Failed to send message. Please try again.', false);
+                submitBtn.innerHTML = `<span>${originalText}</span><i class="fas fa-paper-plane"></i>`;
+            }
+        });
+
+        async function downloadCV() {
+            showToast('Preparing your world-class CV...', true);
+            
+            // Using jsPDF library via CDN
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+            document.head.appendChild(script);
+            
+            script.onload = function() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                const primaryColor = [102, 126, 234];
+                const accentColor = [118, 75, 162];
+                const darkGray = [45, 45, 45];
+                const mediumGray = [100, 100, 100];
+                const lightGray = [180, 180, 180];
+                
+                // ===== PAGE 1 =====
+                
+                // Left sidebar background
+                doc.setFillColor(248, 249, 250);
+                doc.rect(0, 0, 70, 297, 'F');
+                
+                // Header accent bar
+                doc.setFillColor(...primaryColor);
+                doc.rect(0, 0, 210, 45, 'F');
+                
+                // Diagonal accent
+                doc.setFillColor(...accentColor);
+                doc.triangle(0, 35, 0, 45, 35, 45, 'F');
+                
+                // Name
+                doc.setFontSize(28);
+                doc.setTextColor(255, 255, 255);
+                doc.setFont(undefined, 'bold');
+                doc.text('ENYEW ABEBE', 75, 22);
+                
+                
+                // Title
+                doc.setFontSize(11);
+                doc.setFont(undefined, 'normal');
+                doc.setTextColor(240, 240, 240);
+                doc.text('IT Officer & Full-Stack Developer', 75, 42);
+                
+                // === LEFT SIDEBAR ===
+                let leftY = 55;
+                
+                // Contact Section
+                doc.setFontSize(11);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('CONTACT', 10, leftY);
+                
+                leftY += 8;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                
+                // Phone
+                doc.setFillColor(...primaryColor);
+                doc.text('+251 989 847 725', 10, leftY + 4);
+                leftY += 10;
+                
+                // Email
+              
+                const emailLines = doc.splitTextToSize('enyew_abebe@outlook.com', 50);
+                doc.text(emailLines, 10, leftY + 4);
+                leftY += 10;
+                
+                // Location
+              
+                doc.text('Addis Ababa,Ethiopia,', 10, leftY + 4);
+                doc.text('', 10, leftY + 8);
+                
+                // Skills Section
+                leftY += 20;
+                doc.setFontSize(11);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('CORE SKILLS', 10, leftY);
+                
+                leftY += 6;
+                doc.setFontSize(8.5);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                
+                const skills = [
+                    'Flutter & Dart',
+                    'Laravel & PHP',
+                    'RESTful API',
+                    'Firebase',
+                    'State Management',
+                    'UI/UX Design',
+                    'MySQL Database',
+                    'Git Version Control',
+                    'Hardware Config',
+                    'Network Admin',
+                    'System Troubleshooting',
+                    'Security Protocols'
+                ];
+                
+                skills.forEach(skill => {
+                    leftY += 5;
+                    doc.setFillColor(...primaryColor);
+                    doc.rect(10, leftY - 1.5, 1, 1, 'F');
+                    doc.text(skill, 13, leftY);
+                });
+                
+                // Key Achievements
+                leftY += 12;
+                doc.setFontSize(11);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('ACHIEVEMENTS', 10, leftY);
+                
+                leftY += 8;
+                doc.setFontSize(20);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('60%', 15, leftY);
+                doc.setFontSize(7.5);
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'normal');
+                doc.text('Downtime', 15, leftY + 4);
+                doc.text('Reduction', 15, leftY + 8);
+                
+                leftY += 18;
+                doc.setFontSize(20);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('200+', 15, leftY);
+                doc.setFontSize(7.5);
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'normal');
+                doc.text('Staff', 15, leftY + 4);
+                doc.text('Trained', 15, leftY + 8);
+                
+                leftY += 18;
+                doc.setFontSize(20);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('99.8%', 15, leftY);
+                doc.setFontSize(7.5);
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'normal');
+                doc.text('System', 15, leftY + 4);
+                doc.text('Uptime', 15, leftY + 8);
+                
+                leftY += 18;
+                doc.setFontSize(20);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('25+', 15, leftY);
+                doc.setFontSize(7.5);
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'normal');
+                doc.text('Projects', 15, leftY + 4);
+                doc.text('Delivered', 15, leftY + 8);
+                
+                // === RIGHT CONTENT ===
+                let rightY = 55;
+                
+                // Professional Summary
+                doc.setFontSize(12);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('PROFESSIONAL SUMMARY', 75, rightY);
+                
+                doc.setLineWidth(0.5);
+                doc.setDrawColor(...primaryColor);
+                doc.line(75, rightY + 1, 200, rightY + 1);
+                
+                rightY += 8;
+                doc.setFontSize(9.5);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                const summaryText = doc.splitTextToSize('Results-driven IT professional with 5+ years of expertise in technical support, full-stack development, and system optimization. Proven track record in reducing downtime, implementing security protocols, and delivering high-quality Flutter and Laravel applications. Experienced in training teams, managing critical infrastructure, and driving digital transformation initiatives.', 125);
+                doc.text(summaryText, 75, rightY);
+                
+                // Professional Experience
+                rightY += summaryText.length * 4.5 + 10;
+                doc.setFontSize(12);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('PROFESSIONAL EXPERIENCE', 75, rightY);
+                doc.line(75, rightY + 1, 200, rightY + 1);
+                
+                // Job 1
+                rightY += 8;
+                doc.setFontSize(11);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'bold');
+                doc.text('IT & Software Support Officer', 75, rightY);
+                
+                doc.setFontSize(9);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bolditalic');
+                doc.text('Siinqee Bank S.C.', 75, rightY + 5);
+                
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'italic');
+                doc.text('2023 - 2025', 173, rightY + 5);
+                
+                rightY += 10;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                
+                const job1Items = [
+                    'Engineered proactive maintenance protocols that reduced system downtime by 60%, ensuring business continuity',
+                    'Led comprehensive training programs for 200+ bank staff, enhancing operational efficiency and software adoption',
+                    'Maintained exceptional 99.8% uptime for mission-critical banking applications serving thousands of customers',
+                    'Architected and implemented robust security protocols, achieving zero security breaches'
+                ];
+                
+                job1Items.forEach(item => {
+                    const lines = doc.splitTextToSize('• ' + item, 120);
+                    doc.text(lines, 77, rightY);
+                    rightY += lines.length * 4.5;
+                });
+                
+                // Job 2
+                rightY += 6;
+                doc.setFontSize(11);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'bold');
+                doc.text('Freelance IT & Software Developer', 75, rightY);
+                
+                doc.setFontSize(9);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bolditalic');
+                doc.text('Qmem Tech', 75, rightY + 5);
+                
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'italic');
+                doc.text('2024 - 2025', 173, rightY + 5);
+                
+                rightY += 10;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                
+                const job2Items = [
+                    'Achieved 95% issue resolution rate within 24 hours, exceeding industry standards',
+                    'Developed 2+ Flutter mobile applications',
+                    'Built 3+ Laravel web applications with 99.9% uptime and optimized performance',
+                    'Maintained 100% client retention rate through exceptional service delivery and technical expertise'
+                ];
+                
+                job2Items.forEach(item => {
+                    const lines = doc.splitTextToSize('• ' + item, 120);
+                    doc.text(lines, 77, rightY);
+                    rightY += lines.length * 4.5;
+                });
+                
+                // Job 3
+                rightY += 6;
+                doc.setFontSize(11);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'bold');
+                doc.text('Software Development Intern', 75, rightY);
+                
+                doc.setFontSize(9);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bolditalic');
+                doc.text('Information Network Security Agency (INSA)', 75, rightY + 5);
+                
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'italic');
+                doc.text('2022 - 2023', 173, rightY + 5);
+                
+                rightY += 10;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                
+                const job3Items = [
+                    'Developed 2+ cross-platform applications',
+                    'Optimized application performance, reducing loading time by 30% through code refactoring',
+                    'Enhanced user engagement by 25% through intuitive UI/UX design and feature improvements'
+                ];
+                
+                job3Items.forEach(item => {
+                    const lines = doc.splitTextToSize('• ' + item, 120);
+                    doc.text(lines, 77, rightY);
+                    rightY += lines.length * 4.5;
+                });
+                
+                // Footer
+                doc.setFillColor(...primaryColor);
+                doc.rect(0, 287, 210, 10, 'F');
+                doc.setFontSize(8);
+                doc.setTextColor(255, 255, 255);
+                doc.setFont(undefined, 'normal');
+                doc.text('Page 1 of 2', 180, 293);
+                
+                // ===== PAGE 2 =====
+                doc.addPage();
+                
+                // Left sidebar background
+                doc.setFillColor(248, 249, 250);
+                doc.rect(0, 0, 70, 297, 'F');
+                
+                // Header accent bar (smaller on page 2)
+                doc.setFillColor(...primaryColor);
+                doc.rect(0, 0, 210, 25, 'F');
+                
+                doc.setFontSize(16);
+                doc.setTextColor(255, 255, 255);
+                doc.setFont(undefined, 'bold');
+                doc.text('ENYEW ABEBE ATTO', 75, 15);
+                
+                // === LEFT SIDEBAR PAGE 2 ===
+                leftY = 35;
+                
+                // Languages
+                doc.setFontSize(11);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('LANGUAGES', 10, leftY);
+                
+                leftY += 8;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'bold');
+                doc.text('English', 10, leftY);
+                doc.setFont(undefined, 'normal');
+                doc.text('Professional', 10, leftY + 4);
+                
+                leftY += 12;
+                doc.setFont(undefined, 'bold');
+                doc.text('Amharic', 10, leftY);
+                doc.setFont(undefined, 'normal');
+                doc.text('Native', 10, leftY + 4);
+                
+                // Interests
+                leftY += 18;
+                doc.setFontSize(11);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('INTERESTS', 10, leftY);
+                
+                leftY += 6;
+                doc.setFontSize(8.5);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                
+                const interests = [
+                    'Emerging Tech',
+                    'AI & Machine Learning',
+                    'Cloud Computing',
+                    'Cybersecurity',
+                    'Open Source',
+                    'Tech Innovation'
+                ];
+                
+                interests.forEach(interest => {
+                    leftY += 5;
+                    doc.setFillColor(...primaryColor);
+                    doc.rect(10, leftY - 1.5, 1, 1, 'F');
+                    doc.text(interest, 13, leftY);
+                });
+                
+                // References
+                leftY += 15;
+                doc.setFontSize(11);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('REFERENCES', 10, leftY);
+                
+                leftY += 8;
+                doc.setFontSize(8.5);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                doc.text('Available upon', 10, leftY);
+                doc.text('request', 10, leftY + 4);
+                
+                // === RIGHT CONTENT PAGE 2 ===
+                rightY = 35;
+                
+                // Technical Expertise
+                doc.setFontSize(12);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('TECHNICAL EXPERTISE', 75, rightY);
+                doc.setLineWidth(0.5);
+                doc.setDrawColor(...primaryColor);
+                doc.line(75, rightY + 1, 200, rightY + 1);
+                
+                rightY += 8;
+                
+                // Development Tools
+                doc.setFontSize(10);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('Mobile & Web Development', 75, rightY);
+                
+                rightY += 5;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                const devTools = doc.splitTextToSize('Flutter, Dart, Laravel, PHP, RESTful API Design & Integration, Firebase Real-time Database, State Management (Provider, Bloc, Riverpod), Responsive UI/UX Design, MySQL Database Management, Git Version Control & Collaboration', 125);
+                doc.text(devTools, 75, rightY);
+                
+                rightY += devTools.length * 4 + 6;
+                
+                // IT Infrastructure
+                doc.setFontSize(10);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('IT Infrastructure & Support', 75, rightY);
+                
+                rightY += 5;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                const itSkills = doc.splitTextToSize('Hardware Configuration & Maintenance, Network Administration & Optimization, System Troubleshooting & Diagnostics, User Training & Technical Support, System Maintenance & Updates, Security Protocol Implementation, Technical Documentation, Help Desk Management', 125);
+                doc.text(itSkills, 75, rightY);
+                
+                // Education & Certifications
+                rightY += itSkills.length * 4 + 10;
+                doc.setFontSize(12);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('EDUCATION & CERTIFICATIONS', 75, rightY);
+                doc.line(75, rightY + 1, 200, rightY + 1);
+                
+                // Education
+                rightY += 8;
+                doc.setFontSize(11);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'bold');
+                doc.text('Bachelor of Science in Information Systems', 75, rightY);
+                
+                doc.setFontSize(9);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bolditalic');
+                doc.text('Bahir Dar University', 75, rightY + 5);
+                
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'italic');
+                doc.text('2019 - 2023', 173, rightY + 5);
+                
+                rightY += 10;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                doc.text('• Graduated with honors in Information Systems', 77, rightY);
+                rightY += 4.5;
+                doc.text('• Specialized in Software Engineering and System Architecture', 77, rightY);
+                rightY += 4.5;
+                doc.text('• Completed capstone project on mobile application security', 77, rightY);
+                
+                // Certifications
+                rightY += 10;
+                doc.setFontSize(11);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'bold');
+                doc.text('Professional Certifications', 75, rightY);
+                
+                doc.setFontSize(9);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bolditalic');
+                doc.text('Miljonbemanning, Sweden', 75, rightY + 5);
+                
+                doc.setTextColor(...mediumGray);
+                doc.setFont(undefined, 'italic');
+                doc.text('2024 - 2025', 173, rightY + 5);
+                
+                rightY += 10;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                doc.text('• Project Management Tech (PMT) - Advanced project coordination and team leadership', 77, rightY);
+                rightY += 4.5;
+                doc.text('• Problem Solving Certificate (PSC) - Critical thinking and analytical problem resolution', 77, rightY);
+                
+                // Key Projects
+                rightY += 12;
+                doc.setFontSize(12);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('KEY PROJECT HIGHLIGHTS', 75, rightY);
+                doc.line(75, rightY + 1, 200, rightY + 1);
+                
+                rightY += 8;
+                doc.setFontSize(10);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('Banking System Optimization', 75, rightY);
+                
+                rightY += 5;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                const project1 = doc.splitTextToSize('Redesigned critical banking infrastructure reducing system failures by 60%. Implemented automated monitoring systems and preventive maintenance protocols.', 125);
+                doc.text(project1, 75, rightY);
+                
+                rightY += project1.length * 4 + 6;
+                doc.setFontSize(10);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('Mobile Payment Application', 75, rightY);
+                
+                rightY += 5;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                const project2 = doc.splitTextToSize('Developed secure Flutter-based payment app handling 10,000+ daily transactions. Integrated Firebase authentication and real-time database synchronization.', 125);
+                doc.text(project2, 75, rightY);
+                
+                rightY += project2.length * 4 + 6;
+                doc.setFontSize(10);
+                doc.setTextColor(...accentColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('Enterprise Resource Planning System', 75, rightY);
+                
+                rightY += 5;
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                const project3 = doc.splitTextToSize('Built comprehensive Laravel ERP system managing inventory, HR, and finance modules. Deployed with 99.9% uptime and serving 500+ concurrent users.', 125);
+                doc.text(project3, 75, rightY);
+                
+                // Professional Summary Box
+                rightY += project3.length * 4 + 10;
+                doc.setFillColor(248, 249, 250);
+                doc.setDrawColor(...primaryColor);
+                doc.setLineWidth(0.5);
+                doc.roundedRect(75, rightY, 125, 25, 2, 2, 'FD');
+                
+                rightY += 6;
+                doc.setFontSize(10);
+                doc.setTextColor(...primaryColor);
+                doc.setFont(undefined, 'bold');
+                doc.text('Why Choose Me?', 80, rightY);
+                
+                rightY += 6;
+                doc.setFontSize(8.5);
+                doc.setTextColor(...darkGray);
+                doc.setFont(undefined, 'normal');
+                const whyMe = doc.splitTextToSize('I bring a unique combination of technical expertise, proven results, and dedication to excellence. With a track record of reducing costs, improving efficiency, and delivering high-quality solutions, I am committed to driving technological innovation and business success.', 115);
+                doc.text(whyMe, 80, rightY);
+                
+                // Footer
+                doc.setFillColor(...primaryColor);
+                doc.rect(0, 287, 210, 10, 'F');
+                doc.setFontSize(8);
+                doc.setTextColor(255, 255, 255);
+                doc.setFont(undefined, 'normal');
+                doc.text('Page 2 of 2', 180, 293);
+                doc.text('enyew_abebe@outlook.com  |  +251 989 847 725', 10, 293);
+                
+                // Save the PDF
+                doc.save('Enyew_Abebe_CV.pdf');
+                showToast('CV downloaded successfully! 🌟', true);
+            };
+            
+            script.onerror = function() {
+                showToast('Failed to load PDF generator. Please try again.', false);
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a18fd06e5c77e19',t:'MTc2MzY1MjYyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
